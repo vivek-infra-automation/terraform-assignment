@@ -1,4 +1,4 @@
-output "alb_dns" {
+output "alb_dns_name" {
   description = "ALB DNS name"
   value       = aws_lb.app.dns_name
 }

@@ -3,6 +3,10 @@ resource "aws_security_group" "alb" {
   description = "ALB security group"
   vpc_id      = aws_vpc.this.id
 
+  lifecycle {
+    create_before_destroy = true
+  }
+
   ingress {
     from_port   = 80
     to_port     = 80
@@ -36,6 +40,10 @@ resource "aws_security_group" "ecs" {
   name        = "${var.project_name}-ecs-sg"
   description = "ECS security group"
   vpc_id      = aws_vpc.this.id
+
+  lifecycle {
+    create_before_destroy = true
+  }
 
   ingress {
     from_port       = var.container_port

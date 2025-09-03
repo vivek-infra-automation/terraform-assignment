@@ -37,7 +37,7 @@ variable "alb_domain" {
 variable "container_port" {
   type        = number
   description = "Container port"
-  default     = 80
+  default     = 3000
 }
 
 variable "desired_count" {
@@ -58,8 +58,14 @@ variable "memory" {
   default     = "512"
 }
 
-variable "db_connection_string" {
+variable "db_secret_name" {
   type        = string
-  description = "DB connection string"
-  sensitive   = true
+  description = "Secrets Manager secret name"
+  default     = "prod/db/connection"
+}
+
+variable "image_tag" {
+  type        = string
+  description = "Docker image tag"
+  default     = "latest"
 }

@@ -25,6 +25,11 @@ resource "aws_iam_role_policy_attachment" "ecs_task_execution_role_managed" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
 }
 
+resource "aws_iam_role_policy_attachment" "execution_secrets_read" {
+  role       = aws_iam_role.ecs_task_execution_role.name
+  policy_arn = aws_iam_policy.secrets_read.arn
+}
+
 resource "aws_iam_role" "ecs_task_role" {
   name = "${var.project_name}-ecs-task-role"
 
@@ -58,7 +63,7 @@ resource "aws_iam_policy" "secrets_read" {
         Action = [
           "secretsmanager:GetSecretValue"
         ]
-        Resource = aws_secretsmanager_secret.db.arn
+        Resource = data.aws_secretsmanager_secret.db.arn
       }
     ]
   })

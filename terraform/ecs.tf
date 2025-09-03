@@ -19,19 +19,18 @@ resource "aws_ecs_task_definition" "app" {
   container_definitions = jsonencode([
     {
       name      = "app"
-      image     = "nginx:latest"
+      image     = "${aws_ecr_repository.app.repository_url}:${var.image_tag}"
       essential = true
       portMappings = [
         {
           containerPort = var.container_port
-          hostPort      = var.container_port
           protocol      = "tcp"
         }
       ]
       secrets = [
         {
           name      = "DB_CONNECTION"
-          valueFrom = aws_secretsmanager_secret.db.arn
+          valueFrom = data.aws_secretsmanager_secret.db.arn
         }
       ]
       logConfiguration = {
