@@ -1,7 +1,7 @@
 FROM node:18-alpine
 WORKDIR /app
-COPY package*.json ./
-RUN npm ci --only=production && npm cache clean --force
+COPY package.json ./
+RUN npm install --production && npm cache clean --force
 COPY app.js ./
 COPY public/ ./public/
 RUN addgroup -g 1001 -S nodejs && \
