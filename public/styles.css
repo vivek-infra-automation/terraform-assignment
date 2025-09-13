@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+}
+
+.emoji {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    color: #333;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.description {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.status-table {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+th {
+    background: #343a40;
+    color: white;
+    padding: 0.75rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.row-healthy {
+    background-color: #d4edda;
+}
+
+.row-unhealthy {
+    background-color: #f8d7da;
+}
+
+.badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.badge-healthy {
+    background-color: #28a745;
+    color: white;
+}
+
+.badge-unhealthy {
+    background-color: #dc3545;
+    color: white;
+}
+
+.badge-info {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.details {
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: #495057;
+    word-break: break-all;
+}
+
+.message {
+    color: #6c757d;
+    font-style: italic;
+}
+
+.status {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    color: white;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+.status-healthy {
+    background: #28a745;
+}
+
+.status-unhealthy {
+    background: #dc3545;
+}
+
+.value.status-healthy {
+    color: #28a745;
+    font-weight: 600;
+}
+
+.value.status-unhealthy {
+    color: #dc3545;
+    font-weight: 600;
+}

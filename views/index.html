@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World App</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="emoji">🚀</div>
+        <h1>Hello World!</h1>
+        <p class="description">Welcome to our containerized Node.js application running on AWS ECS Fargate</p>
+        
+        <div class="status-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Status</th>
+                        <th>Details</th>
+                        <th>Message</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="row-{{DB_STATUS}}">
+                        <td><strong>🗄️ Database</strong></td>
+                        <td><span class="badge badge-{{DB_STATUS}}">{{DB_STATUS}}</span></td>
+                        <td class="details">{{DB_CONNECTION}}</td>
+                        <td class="message">{{DB_MESSAGE}}</td>
+                    </tr>
+                    <tr class="row-{{PORT_STATUS}}">
+                        <td><strong>🌐 Port</strong></td>
+                        <td><span class="badge badge-{{PORT_STATUS}}">{{PORT_STATUS}}</span></td>
+                        <td class="details">{{PORT}}</td>
+                        <td class="message">Service listening</td>
+                    </tr>
+                    <tr class="row-healthy">
+                        <td><strong>⏰ Timestamp</strong></td>
+                        <td><span class="badge badge-info">active</span></td>
+                        <td class="details">{{TIMESTAMP}}</td>
+                        <td class="message">Current server time</td>
+                    </tr>
+                    <tr class="row-healthy">
+                        <td><strong>📦 Version</strong></td>
+                        <td><span class="badge badge-info">1.0.0</span></td>
+                        <td class="details">Node.js App</td>
+                        <td class="message">Application version</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="status status-{{HEALTH_STATUS}}">
+            <span id="status-text">{{HEALTH_STATUS}}</span>
+        </div>
+        
+        <script>
+            const status = '{{HEALTH_STATUS}}';
+            const statusText = document.getElementById('status-text');
+            if (status === 'healthy') {
+                statusText.textContent = '✅ All Services Healthy';
+            } else {
+                statusText.textContent = '❌ Service Issues Detected';
+            }
+        </script>
+    </div>
+</body>
+</html>
