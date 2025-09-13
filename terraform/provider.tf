@@ -2,9 +2,9 @@ terraform {
   required_version = ">= 1.5.0"
 
   backend "s3" {
-    bucket         = "terraform-state-bucket-hello-world"
-    key            = "terraform.tfstate"
-    region         = "us-west-2"
+    bucket         = "terraform-state-bucket-hello-world-app"
+    key            = "hello-world-terraform.tfstate"
+    region         = "us-east-1"
     encrypt        = true
     dynamodb_table = "terraform-state-lock"
   }
